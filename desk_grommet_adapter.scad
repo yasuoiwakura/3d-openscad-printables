@@ -2,14 +2,39 @@ union() {
 difference() {
 
     // MATERIAL START //
-    union() {
-   
+    union() { 
+        // Hauptzylinder
+        translate([0, 0, 0+10])
+            cylinder(d=59, h=26-10, $fn=128);
+
         // Oberer Überstand zur Auflage
         translate([0, 0, (26)])
             cylinder(d1=80, d2=64, h=10, $fn=128); // LOCH TISCH d<80
 
-        // Hauptzylinder
-        cylinder(d=59, h=26, $fn=128);
+        // Außenliegende Clips zum Einrasten im Tischloch
+        for (angle = [0, 120, 240, 0+40, 120+40, 240+40, 0+80, 120+80, 240+80]) {
+            rotate([0, 0, angle+25]) {
+                intersection(){
+                     // nachfolgende Würfel begrenzt auf Hauptzyliner-Radius
+                    union(){
+                        translate([0, 0, -4])
+                        cylinder(d=59, h=4+26, $fn=128);
+
+                        translate([0, 0, -8])
+                        cylinder(d1=57, ,d2=59, h=4, $fn=128);
+                    }
+
+                    // Federarm – schmaler Steg (innen begrenzt)
+                    translate([59/2 - 1-1, -4, -8])  // Außen: Zylinder (r=29.5)
+                    cube([2, 8, 8+10], center=false);  // (Breite x Tiefe x Höhe)
+                }
+                // Rastnase – überstehender Stopper
+                translate([59/2-0.5, 1, 0-2])  // vorne oben auf dem Steg
+                rotate([90, 0, 0])
+                cylinder(d=4, h=2, $fn=32);  // runde Nase
+            }
+        }
+
     }// MATERIAL ENDE // 
 
 
@@ -18,6 +43,10 @@ difference() {
     // Innenausschnitt für USB-Modul
     translate([0, 0, -0.1])
         cylinder(d=45, h=111, $fn=128); // MODUL d=45
+
+    // Nase unten rund machen
+    translate([0, 0, -4])
+        cylinder(d=57, h=4+10, $fn=128); // MODUL d=45
 
     // Löcher (4x im Kreis) zum festschrauben an USB
     for (angle = [0, 90, 180, 270]) {
@@ -63,5 +92,7 @@ difference() {
 
 }
 //Test-Objekte ohne Löcher
+
+
 
 }
