@@ -1,22 +1,31 @@
 union() {
-    // Bodenplatte mit Aussparung für Schraubenkopf
+    // Bodenplatte mit hohler Basis (unten)
     difference() {
-        cylinder(d=30, h=4, $fn=128);  // Bodenplatte
+        translate([0, 0, 0])  // Start ganz unten
+            cylinder(d=30, h=4, $fn=128);  // Bodenplatte
 
-        // Aussparung für Schraubenkopf (8mm Durchmesser, 2mm tief)
-        translate([0, 0, 0])  // liegt auf Bodenplatte unten
-            cylinder(d=8, h=2, $fn=128);
-
-        translate([57, 25, -0.1])  // Lüfter
-            cylinder(d=114, h=2.1, $fn=128);
+        translate([0, 0, -0.1])  // Innere Aushöhlung leicht tiefer
+            cylinder(d=11.5, h=4.2, $fn=128);
     }
 
-    // Hohler Zylinder darauf
+    // Hohler Zylinder darüber (Stütze)
     difference() {
-        translate([0, 0, 4])  // Zylinder steht auf Bodenplatte
-            cylinder(d=15.5, h=20, $fn=128);
+        translate([0, 0, 4])  // direkt über dem Boden
+            cylinder(d=15.5, h=136, $fn=128);  // äußere Wand
 
-        translate([0, 0, 4])  // Innenhohlraum
-            cylinder(d=11.5, h=21, $fn=128);
+        translate([0, 0, 3.9])  // innerer Hohlraum
+            cylinder(d=11.5, h=141.1, $fn=128);
+    }
+
+    // Deckplatte mit Schraubenaussparung und GPU-Lüfterausschnitt
+    difference() {
+        translate([0, 0, 140])  // ganz oben
+            cylinder(d=30, h=4, $fn=128);  // obere Abdeckung
+
+        translate([0, 0, 142])  // Schraubenaussparung
+            cylinder(d=8, h=2.1, $fn=128);
+
+        translate([-57, -25, 142])  // Lüfterausschnitt oben
+            cylinder(d=114, h=2.1, $fn=128);
     }
 }
