@@ -28,6 +28,7 @@ gesamt_x_breite = wall + tisch_breite + wall + abstand_zwischen + wall + pedal_x
 gesamt_y_laenge = max(tisch_len, pedal_y_len) + wall * 2;
 
 module halterung() {
+    translate([0, 0, 0])
     difference() {
         union() {
             // Grundplatte
