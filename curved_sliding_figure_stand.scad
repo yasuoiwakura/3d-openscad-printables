@@ -6,10 +6,12 @@ schiene_laenge = 50;          // Radiale Breite der Aussparung (mm)
 schiene_hoehe = 10;   // Hoehe des Balkens (mm)
 schiene_tiefe = 13;
 monitor_radius = 1000;  // Radius der Biegung (mm)
+
+wand=2;
 fn = 512;               // $fn Aufloesung fuer Boegen
 //fn=fn*10;
 
-module aussparung() {
+module bogen() {
     angle = schiene_laenge / monitor_radius * 180 / PI;  // Biegung
 
     translate([0,-monitor_radius-schiene_tiefe/2,-schiene_hoehe])
@@ -20,4 +22,4 @@ module aussparung() {
             square([schiene_tiefe, schiene_hoehe], center = false);
 }
 // Aufruf des Moduls
-aussparung();
+bogen();
