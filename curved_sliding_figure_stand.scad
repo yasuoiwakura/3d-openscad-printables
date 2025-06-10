@@ -63,8 +63,8 @@ module schiene(){
 
 
 module hangman(){
-    translate([-stab_seitlich,0,0])
-    cylinder(h=stab_hoehe, d=stab_dia, $fn=fn);
+    translate([-stab_seitlich,0,0-wand])
+    cylinder(h=stab_hoehe+wand, d=stab_dia, $fn=fn);
 
     difference(){
         translate([0-stab_seitlich,0,stab_hoehe])
@@ -80,13 +80,17 @@ module hangman(){
     }
 
 module main(){
-    translate([0,0,0])
-    schiene();
+    difference(){
+        translate([0,0,0])
+        schiene();
+
+        translate([-stab_versatz_nach_rechts,0,-wand*2])
+        cylinder(h=wand*3, d=stab_dia, $fn=fn);
+    }
         
     //hangman();
     translate([stab_versatz_nach_rechts,0,0])
     hangman();
-
 }    
     
 translate([0,0,0])
