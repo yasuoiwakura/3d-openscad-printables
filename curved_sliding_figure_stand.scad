@@ -78,9 +78,16 @@ module hangman(){
     translate([-stab_seitlich,0,stab_hoehe])
     sphere(d=stab_dia, $fn=fn);
     }
-translate([0,0,0])
-schiene();
-    
-//hangman();
-translate([stab_versatz_nach_rechts,0,0])
+
+module main(){
+    translate([0,0,0])
+    schiene();
+        
+    //hangman();
+    translate([stab_versatz_nach_rechts,0,0])
     hangman();
+
+}    
+    
+translate([0,0,0])
+main();
