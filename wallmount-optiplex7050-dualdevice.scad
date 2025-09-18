@@ -14,31 +14,51 @@ h_halter = 50;  // Höhe der Platten in mm (Z-Richtung)
 bohrloch_abstand = 10;  // Abstand der Bohrlöcher zur Kante der Platten
 bodenplatte_dicke = 10;  // Dicke der Bodenplatte in mm
 
+nase=10;
+
 bohr_axis="y";
 
 fn=32;
 test=false;
+export=1; // 0=alles 1=boden+Wandplatte 2=Wände  3=nur 1 Wand
 
 use <../_bohr_senk.scad>;
 use <../_round_edge.scad>;
 use <../_wall_with_holes.scad>;
 
-// Erstelle Wand 1 mit Bohrlöchern und die anderen Wände ohne Bohrlöcher
-translate([0, 0, 0]) {
-    bodenplatte();  // Bodenplatte, die alle 3 Wände verbindet
-}
 
-translate([0, 0, bodenplatte_dicke]) {
-    wand_3(h=h_wand_3);  // Dritte Wand für HDD-Gehäuse (keine Bohrlöcher)
-}
+if (export == 0 || export == 1){
+    difference(){
+        union(){
+            if (export == 0 || export == 1){
+                translate([0, 0, 0]) {
+                    bodenplatte();  // Bodenplatte, die alle 3 Wände verbindet
+                }
+                translate([0, wand_dicke*2 +wand_abstand*2, bodenplatte_dicke]) {
+                    wand_1(h=h_wand_1);  // Erste Wand für OptiPlex mit Senkkopfbohrungen
+                }
+            }}
+        translate([0, 0, bodenplatte_dicke]) {
+            wand_2(h=h_wand_3);  // Dritte Wand für HDD-Gehäuse (keine Bohrlöcher)
+        }
+        translate([0, wand_dicke+wand_abstand, bodenplatte_dicke]) {
+            wand_2(h=h_wand_2);  // Zweite Wand zwischen HDD/Optiplex
+        }
+    }
+};
 
-translate([0, wand_dicke+wand_abstand, bodenplatte_dicke]) {
-    wand_2(h=h_wand_2);  // Zweite Wand zwischen HDD/Optiplex
-}
+if (export == 0 || export == 2|| export == 3){
+        translate([0, 0, bodenplatte_dicke]) {
+            wand_2(h=h_wand_3);  // Dritte Wand für HDD-Gehäuse (keine Bohrlöcher)
+        }
 
-translate([0, wand_dicke*2 +wand_abstand*2, bodenplatte_dicke]) {
-    wand_1(h=h_wand_1);  // Erste Wand für OptiPlex mit Senkkopfbohrungen
-}
+        if (export != 3){
+            translate([0, wand_dicke+wand_abstand, bodenplatte_dicke]) {
+                wand_2(h=h_wand_2);  // Zweite Wand zwischen HDD/Optiplex
+            }
+        }
+    }
+
 
 if (test){
     // Platzhalter für den OptiPlex
@@ -82,21 +102,22 @@ module wand_1(h=wand_hoehe) {
 
     };//diff
 
-
-
 //    rotate([0,90,0])
 //    cylinder(h=wand_laenge, d=wand_dicke, $fn=fn);
 }
 
 module wand_2(h=wand_hoehe) {  // (zwischen OptiPlex und HDD)
     union() {
-        _wall_with_holes([wand_laenge, wand_dicke, h]
-                ,30,20,
-        20, fn=fn);
+        cube([wand_laenge, wand_dicke, h]);
 
         translate([0,wand_dicke/2,h])
             rotate([0,90,0])
             cylinder(h=wand_laenge, d=wand_dicke+0.5, $fn=fn);
+        
+        translate([wand_laenge*1/3,0,-bodenplatte_dicke])
+            cube([nase,wand_dicke,bodenplatte_dicke]);
+        translate([wand_laenge*2/3,0,-bodenplatte_dicke])
+            cube([nase,wand_dicke,bodenplatte_dicke]);
     }
 }
 
@@ -106,12 +127,21 @@ module wand_3(h=wand_hoehe) {  // Außen an HDD
         translate([0,wand_dicke/2,h])
             rotate([0,90,0])
             cylinder(h=wand_laenge, d=wand_dicke+0.5, $fn=fn);
+
+        translate([wand_laenge*1/3,0,-bodenplatte_dicke])
+            cube([nase,wand_dicke,bodenplatte_dicke]);
+        translate([wand_laenge*2/3,0,-bodenplatte_dicke])
+            cube([nase,wand_dicke,bodenplatte_dicke]);
+
     }
 }
 
 module bodenplatte() { // die alle Wände unten verbindet
-    difference() {
+    union() {
         // Die Bodenplatte ist so groß, dass sie alle 3 Wände an der Unterseite berührt
         cube([wand_laenge, 2 * wand_abstand + 3* wand_dicke, bodenplatte_dicke]);  // Die Bodenplatte verbindet alle 3 Wände
+        translate([0,0,bodenplatte_dicke/2])
+        rotate([0,90,0])
+        cylinder(h=wand_laenge, d=bodenplatte_dicke);
     }
 }
