@@ -6,18 +6,22 @@ optiplex_breite = 35.5;  // Breite des OptiPlex 7550 in mm
 hdd_breite = 35.5;  // Breite des externen HDD-Gehäuses in mm
 
 h_wand_1=150;
-h_wand_2=100;
-h_wand_3=50;
+h_wand_2=30;
+h_wand_3=30;
 wand_hoehe = 50;  // Höhe der Platten in mm (Z-Richtung)
 wand_laenge = 150;  // Länge der Platten in mm (X-Richtung)
 h_halter = 50;  // Höhe der Platten in mm (Z-Richtung)
 bohrloch_abstand = 10;  // Abstand der Bohrlöcher zur Kante der Platten
 bodenplatte_dicke = 10;  // Dicke der Bodenplatte in mm
-fn=128;
+
 bohr_axis="y";
 
+fn=32;
 test=false;
 
+use <../_bohr_senk.scad>;
+use <../_round_edge.scad>;
+use <../_wall_with_holes.scad>;
 
 // Erstelle Wand 1 mit Bohrlöchern und die anderen Wände ohne Bohrlöcher
 translate([0, 0, 0]) {
@@ -50,10 +54,6 @@ if (test){
         }}
     }
 
-use <../_bohr_senk.scad>;
-use <../_round_edge.scad>;
-
-
 // Halterung für Wand 1 (OptiPlex) mit Senkkopfbohrungen
 module wand_1(h=wand_hoehe) {
     x_bohr_le=bohrloch_abstand;
@@ -61,7 +61,10 @@ module wand_1(h=wand_hoehe) {
     z_bohr_up=h_wand_1-bohrloch_abstand;
     z_bohr_dn=bohrloch_abstand;
     difference() {
-        cube([wand_laenge, wand_dicke, h_wand_1]);  // Wand 1 (für OptiPlex)
+
+        _wall_with_holes([wand_laenge, wand_dicke, h_wand_1]
+        ,100,0,
+        30, fn=fn);  // Wand 1 (für OptiPlex)
         // Senkkopfbohrungen für Wand 1 (nur bei Wand 1!)
         bohr_senk(x_bohr_le, 0, z_bohr_up, axis="y");  // 1. Senkkopfbohrung
         bohr_senk(x_bohr_ri, 0, z_bohr_up, axis="y");  // 2. Senkkopfbohrung
@@ -69,16 +72,27 @@ module wand_1(h=wand_hoehe) {
         bohr_senk(x_bohr_ri, 0, z_bohr_dn, axis="y");
     translate([0,0,h])
     _round_edge(r=wand_dicke, axis="x", rot=90, fn=fn);
-    translate([0,wand_dicke,h])
-    _round_edge(r=0.5, axis="x", rot=0, fn=fn);
-    };
+    translate([0,0,0])
+    _round_edge(r=0.5, axis="z", rot=180, fn=fn);
+    translate([wand_laenge,0,0])
+    _round_edge(r=0.5, axis="z", rot=-90, fn=fn);
+        
+    translate([wand_laenge/2,0,h*0.2])
+        cylinder(h=h*0.7, d=h*0.6);
+
+    };//diff
+
+
+
 //    rotate([0,90,0])
 //    cylinder(h=wand_laenge, d=wand_dicke, $fn=fn);
 }
 
 module wand_2(h=wand_hoehe) {  // (zwischen OptiPlex und HDD)
     union() {
-        cube([wand_laenge, wand_dicke, h]);
+        _wall_with_holes([wand_laenge, wand_dicke, h]
+                ,30,20,
+        20, fn=fn);
 
         translate([0,wand_dicke/2,h])
             rotate([0,90,0])
