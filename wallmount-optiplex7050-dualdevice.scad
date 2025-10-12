@@ -18,9 +18,10 @@ nase=10;
 
 bohr_axis="y";
 
-fn=32;
+fn=128;
 test=false;
-export=1; // 0=alles 1=boden+Wandplatte 2=Wände  3=nur 1 Wand
+export=0; // 0=alles 1=boden+Wandplatte 2=Wände  3=nur 1 Wand
+do_text=true;
 
 use <../_bohr_senk.scad>;
 use <../_round_edge.scad>;
@@ -39,22 +40,22 @@ if (export == 0 || export == 1){
                 }
             }}
         translate([0, 0, bodenplatte_dicke]) {
-            wand_2(h=h_wand_3);  // Dritte Wand für HDD-Gehäuse (keine Bohrlöcher)
+            wand_2_3(h=h_wand_3);  // Dritte Wand für HDD-Gehäuse (keine Bohrlöcher)
         }
         translate([0, wand_dicke+wand_abstand, bodenplatte_dicke]) {
-            wand_2(h=h_wand_2);  // Zweite Wand zwischen HDD/Optiplex
+            wand_2_3(h=h_wand_2);  // Zweite Wand zwischen HDD/Optiplex
         }
     }
 };
 
 if (export == 0 || export == 2|| export == 3){
         translate([0, 0, bodenplatte_dicke]) {
-            wand_2(h=h_wand_3);  // Dritte Wand für HDD-Gehäuse (keine Bohrlöcher)
+            wand_2_3(h=h_wand_3);  // Dritte Wand für HDD-Gehäuse (keine Bohrlöcher)
         }
 
         if (export != 3){
             translate([0, wand_dicke+wand_abstand, bodenplatte_dicke]) {
-                wand_2(h=h_wand_2);  // Zweite Wand zwischen HDD/Optiplex
+                wand_2_3(h=h_wand_2);  // Zweite Wand zwischen HDD/Optiplex
             }
         }
     }
@@ -90,15 +91,16 @@ module wand_1(h=wand_hoehe) {
         bohr_senk(x_bohr_ri, 0, z_bohr_up, axis="y");  // 2. Senkkopfbohrung
         bohr_senk(x_bohr_le, 0, z_bohr_dn, axis="y");
         bohr_senk(x_bohr_ri, 0, z_bohr_dn, axis="y");
-    translate([0,0,h])
-    _round_edge(r=wand_dicke, axis="x", rot=90, fn=fn);
-    translate([0,0,0])
-    _round_edge(r=0.5, axis="z", rot=180, fn=fn);
-    translate([wand_laenge,0,0])
-    _round_edge(r=0.5, axis="z", rot=-90, fn=fn);
-        
-    translate([wand_laenge/2,0,h*0.2])
-        cylinder(h=h*0.7, d=h*0.6);
+
+        translate([0,0,h])
+        _round_edge(r=wand_dicke, axis="x", rot=90, fn=fn*2);
+        translate([0,0,0])
+        _round_edge(r=0.5, axis="z", rot=180, fn=fn);
+        translate([wand_laenge,0,0])
+        _round_edge(r=0.5, axis="z", rot=-90, fn=fn);
+            
+        translate([wand_laenge/2,0,h*0.15])
+            cylinder(h=h*0.7, d=h*0.6);
 
     };//diff
 
@@ -106,35 +108,46 @@ module wand_1(h=wand_hoehe) {
 //    cylinder(h=wand_laenge, d=wand_dicke, $fn=fn);
 }
 
-module wand_2(h=wand_hoehe) {  // (zwischen OptiPlex und HDD)
-    union() {
-        cube([wand_laenge, wand_dicke, h]);
 
-        translate([0,wand_dicke/2,h])
-            rotate([0,90,0])
-            cylinder(h=wand_laenge, d=wand_dicke+0.5, $fn=fn);
+module wand_2_3(h=wand_hoehe) {  // (zwischen OptiPlex und HDD)
+    union() {
         
-        translate([wand_laenge*1/3,0,-bodenplatte_dicke])
-            cube([nase,wand_dicke,bodenplatte_dicke]);
-        translate([wand_laenge*2/3,0,-bodenplatte_dicke])
-            cube([nase,wand_dicke,bodenplatte_dicke]);
-    }
-}
+        cube([wand_laenge, wand_dicke, h]); // Wand
 
-module wand_3(h=wand_hoehe) {  // Außen an HDD
-    union() {
-        cube([wand_laenge, wand_dicke, h]);  // Wand 3 (Führung für HDD-Gehäuse)
-        translate([0,wand_dicke/2,h])
+        translate([0,wand_dicke/2-0.25,h]) // Abrundung
             rotate([0,90,0])
-            cylinder(h=wand_laenge, d=wand_dicke+0.5, $fn=fn);
-
-        translate([wand_laenge*1/3,0,-bodenplatte_dicke])
+            cylinder(h=wand_laenge, d=wand_dicke+0.5, $fn=fn*2);
+        
+        translate([wand_laenge*1/3-nase/2,0,-bodenplatte_dicke])
             cube([nase,wand_dicke,bodenplatte_dicke]);
-        translate([wand_laenge*2/3,0,-bodenplatte_dicke])
+        translate([wand_laenge*2/3-nase/2,0,-bodenplatte_dicke])
             cube([nase,wand_dicke,bodenplatte_dicke]);
+        
+        
+       if (do_text){
+        txt_1 = "BLOX.MEDIA";
+        txt_2 = "#SASU3D";
+        h_txt=.5;
+        // Text extrudieren
+        rotate([90,0,0])
+        color("blue"){
+         translate([wand_laenge/2,10,0]){
+          linear_extrude(height = h_txt) { 
+           text(txt_1, size = 14, halign="center");
+            }};
+         translate([wand_laenge-5,2,0]){
+          linear_extrude(height = h_txt/2) {
+           text(txt_2, size = 6, halign="right");
+        }};
 
+        }//blue
+       }//text
+
+
+        
     }
 }
+
 
 module bodenplatte() { // die alle Wände unten verbindet
     union() {
@@ -142,6 +155,6 @@ module bodenplatte() { // die alle Wände unten verbindet
         cube([wand_laenge, 2 * wand_abstand + 3* wand_dicke, bodenplatte_dicke]);  // Die Bodenplatte verbindet alle 3 Wände
         translate([0,0,bodenplatte_dicke/2])
         rotate([0,90,0])
-        cylinder(h=wand_laenge, d=bodenplatte_dicke);
+        cylinder(h=wand_laenge, d=bodenplatte_dicke, $fn=fn*2);
     }
 }
