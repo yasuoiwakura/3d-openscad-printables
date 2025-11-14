@@ -62,7 +62,7 @@ This 3D-printed adapter reduces an oversized round desk hole (approximately 59 m
 
 ## Footswitch Carriage
 lock your USB HID Pedal along your Desktop Foot
-![Carriage](./assets/img/footswitch_carriage_render.png)
+![Carriage locking usb footswitch pedal to horizontal table stand](./assets/img/footswitch_carriage_render.png)
 
 ### Problem
 You unwantingly kick way your usb footswitch pedal
@@ -104,4 +104,5 @@ PLACEHOLDER
 ## mount portable monitor to pc back
 PLACEHOLDER
 
-## Optiplex wal mount
+## Optiplex wall mount
+PLACEHOLDER
