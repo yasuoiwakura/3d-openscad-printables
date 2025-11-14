@@ -19,11 +19,13 @@ Please  drop a message if you need commercial licenses or the license is hinderi
 
 ## Footswitch Carriage
 lock your USB HID Pedal along your Desktop Foot
-![gitea activity](./assets/img/footswitch_carriage_render.png)
+![Carriage](./assets/img/footswitch_carriage_render.png)
 # Notes
 
 ## gpu_support_spacer_rtx5090
 Minimalist GPU support cylinder with screw hole and fan outlet on top.
+![GPU Support](./assets/img/gpu_support_spacer_collage_1.jpg)
+
 # Notes
 
 ## Model 3
