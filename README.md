@@ -22,9 +22,10 @@ lock your USB HID Pedal along your Desktop Foot
 ![gitea activity](./assets/img/footswitch_carriage_render.png)
 # Notes
 
-## Model 2
-
+## gpu_support_spacer_rtx5090
+Minimalist GPU support cylinder with screw hole and fan outlet on top.
 # Notes
+
 ## Model 3
 
 # Notes
