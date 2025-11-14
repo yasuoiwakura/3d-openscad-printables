@@ -17,8 +17,9 @@ Please  drop a message if you need commercial licenses or the license is hinderi
 
 ### Models
 
-## Model 1
-
+## Footswitch Carriage
+lock your USB HID Pedal along your Desktop Foot
+![gitea activity](./assets/img/footswitch_carriage_render.png)
 # Notes
 
 ## Model 2
