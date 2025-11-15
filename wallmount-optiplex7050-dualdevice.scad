@@ -19,13 +19,13 @@ nase=10;
 bohr_axis="y";
 
 fn=128;
-test=false;
+test=true;
 export=0; // 0=alles 1=boden+Wandplatte 2=Wände  3=nur 1 Wand
 do_text=true;
 
-use <../_bohr_senk.scad>;
-use <../_round_edge.scad>;
-use <../_wall_with_holes.scad>;
+use <openscad_libs_custom/_bohr_senk.scad>;
+use <openscad_libs_custom/_round_edge.scad>;
+use <openscad_libs_custom/_wall_with_holes.scad>;
 
 
 if (export == 0 || export == 1){

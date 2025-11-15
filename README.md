@@ -97,12 +97,57 @@ Minimalist GPU support cylinder with screw hole and fan outlet on top.
 ### Suggestion
 In your slicer, combine the solid upper part with something more creative like an animefigure etc.
 
+---
+
+## Optiplex wall mount
+Secure your Optiplex7050 Plus USB HDD together at the wall next to your Router.
+![image sequence 3d-printed dual device wallmount](./assets/img/gpu_support_spacer_collage_1.jpg)
+
+### Problem
+* The OptiPlex 7050 has no built-in wall-mounting points.
+* A spinning USB HDD is fragile and can easily be damaged if not properly secured.
+### Solution
+* Simple modular wall mount
+* Four recesses for countersunk screws
+* customizable text (change color in slicer to get a nice contrast)
+### Parameters
+* fn=128; // default resolution
+* test=false; // render optiplex and HDD placeholder (do NOT export STL!!!)
+* export = 0; // export mode:
+ * 0 = everything (prints as one part – not recommended)
+ * 1 = **main part only**
+ * 2 = walls only
+ * 3 = **only one wall**
+sugegstion: export main part and 1 wall seperately and arrange them on your slicer (place 1 wall twice)
+* do_text=true; // you want extruded text? disable if you do this with slicer
+* wand_dicke = 5;  // thickness of walls and cutouts
+* d_loch = 4.5;  // diameter countersunk recess
+* wand_abstand = 36;  // distance between walls (thinkness of optiplex+bumber)
+* optiplex_breite = 35.5;  // thickness OptiPlex 7050 in mm
+* hdd_breite = 35.5;  // thickness HDD-Case in mm
+
+* h_wand_1=150; // main wall (screw to your house)
+* h_wand_2=30; // holds optiplex in place
+* h_wand_3=30; // holds HDD case in place
+* wand_hoehe = 50;  // Höhe der Platten in mm (Z-Richtung)
+* wand_laenge = 150;  // how wide you want the whole wallmount?
+* h_halter = 50;  // Höhe der Platten in mm (Z-Richtung)
+* bohrloch_abstand = 10;  // distance countersunk recess to side
+* bodenplatte_dicke = 10;  // The floor will carry Optiplex AND SPINNING HDD - dont make to thin!
+
+* nase=10; // small retention bumps at the wall top
+
+### Limitations / TODO
+* after assembly, no streight access to countersunk 
+* Fasten screws **BEFORE** assembly (or modify the walls)
+* Increase thickness 10mm per device to add space for Optiplex rubber feets and bumpers
+* buy self-adhesive bumpers from discounter, use as vibration-damping pads
+* variables and comments currently german
+
+---
 
 ## anime figure stand (rail) for curved Samsung 9G Monitor
 PLACEHOLDER
 
 ## mount portable monitor to pc back
-PLACEHOLDER
-
-## Optiplex wall mount
 PLACEHOLDER
