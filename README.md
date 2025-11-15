@@ -75,10 +75,10 @@ Secure your Optiplex7050 Plus USB HDD together at the wall next to your Router.
 * fn=128; // default resolution
 * test=false; // render optiplex and HDD placeholder (do NOT export STL!!!)
 * export = 0; // export mode:
- * 0 = everything (prints as one part – not recommended)
- * 1 = **main part only**
- * 2 = walls only
- * 3 = **only one wall**
+  * 0 = everything (prints as one part – not recommended)
+  * 1 = **main part only**
+  * 2 = walls only
+  * 3 = **only one wall**
 sugegstion: export main part and 1 wall seperately and arrange them on your slicer (place 1 wall twice)
 * do_text=true; // you want extruded text? disable if you do this with slicer
 * wand_dicke = 5;  // thickness of walls and cutouts
