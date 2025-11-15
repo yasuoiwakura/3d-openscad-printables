@@ -13,10 +13,10 @@ Creating them can by time-consuming (even with ai), so I'm publishing my objects
 
 ## license
 ### CC BY-NC 4.0
-I want to protect from Temu and mass-resellers, so I set the default license:  
-  
+This project is licensed under the [CC BY-NC 4.0 License](LICENSE.md).  
+
 CC BY-NC 4.0 Matthias Block https://creativecommons.org/licenses/by-nc/4.0/legalcode  
-Please  drop a message if you need commercial licenses or the license is hindering you from participating - just let me know!
+This is to protect from Temu and mass-resellers, plase drop a message if you need commercial licenses or the license is hindering you from participating - just let me know!
 
 # Models
 
