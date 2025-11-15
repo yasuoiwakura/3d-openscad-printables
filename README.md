@@ -150,4 +150,16 @@ In your slicer, combine the solid upper part with something more creative like a
 PLACEHOLDER
 
 ## mount portable monitor to pc back
-PLACEHOLDER
+Pure Base 600 mount with angles to attach a portable monitor
+![image sequence for pc-case-mount for portable monitor](./assets/img/pc-case-hinge-bracket.jpg)
+
+### Problem
+This [11.6 inch 1080p dual-monitor](https://www.amazon.de/dp/B08VJCWBH2) extension for laptops I bought on amazon is mostly unsued and too heavy for my surface anyway.
+### Solution
+Permanently mount the Monitor on your [PC Case](https://www.amazon.de/dp/B06WVRDC41) using the vents on the back side.
+### TODO (inactive)
+* increase distance to pc case for besser cable management
+* cutout for upper USB needs to be bigger
+* fixation against left/right movement of lower part
+* bolts not included yet
+* more versatile usecase to mount different things
