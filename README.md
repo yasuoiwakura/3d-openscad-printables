@@ -1,5 +1,5 @@
 # 3d-openscad-printables
-A small printables-as-code library of assorted parametric OpenSCAD models
+A small printables-as-code library of assorted parametric OpenSCAD models  
 ![several 3d printables on computer versus photo](./assets/img/_3d-openscad-printables_collage.jpg)
 
 ## Problem
@@ -8,14 +8,14 @@ A small printables-as-code library of assorted parametric OpenSCAD models
 3. Buying Fusion360 not quite cheap (plus closed source)
 
 ## solution approach
-Design-as-Code approach OpenSCAD[https://openscad.org/] enabling parameters, logic and use Git versioning. It also can export STL-Files for your Slicer.
+Design-as-Code approach OpenSCAD[https://openscad.org/] enabling parameters, logic and use Git versioning. It also can export STL-Files for your Slicer.  
 Creating them can by time-consuming (even with ai), so I'm publishing my objects here for personal use.
 
 ## license
 ### CC BY-NC 4.0
-I want to protect from Temu and mass-resellers, so I set the default license:
-
-CC BY-NC 4.0 Matthias Block https://creativecommons.org/licenses/by-nc/4.0/legalcode
+I want to protect from Temu and mass-resellers, so I set the default license:  
+  
+CC BY-NC 4.0 Matthias Block https://creativecommons.org/licenses/by-nc/4.0/legalcode  
 Please  drop a message if you need commercial licenses or the license is hindering you from participating - just let me know!
 
 # Models
@@ -23,9 +23,9 @@ Please  drop a message if you need commercial licenses or the license is hinderi
 ---
 
 ## desk grommet adapter
-Desk USB Hole Reducer Adapter
-
-This 3D-printed adapter reduces an oversized round desk hole (approximately 59 mm diameter) to fit a standard USB grommet (45 mm diameter). It features snap-fit locking tabs for secure installation and screw holes for mounting the USB module. The design includes cable cutouts and a flange for stable seating on the desk surface.
+Desk USB Hole Reducer Adapter  
+  
+This 3D-printed adapter reduces an oversized round desk hole (approximately 59 mm diameter) to fit a standard USB grommet (45 mm diameter). It features snap-fit locking tabs for secure installation and screw holes for mounting the USB module. The design includes cable cutouts and a flange for stable seating on the desk surface.  
 ![4 pictures showing Desk USB hole reducer adapter with lots of screw bosses and feed-through](./assets/img/desk_grommet_adapter_collage.jpg)
 
 ### **Problem**
@@ -78,7 +78,7 @@ Secure your Optiplex7050 Plus USB HDD together at the wall next to your Router.
   * 0 = everything (prints as one part – not recommended)
   * 1 = **main part only**
   * 2 = walls only
-  * 3 = **only one wall**
+  * 3 = **only one wall**  
 sugegstion: export main part and 1 wall seperately and arrange them on your slicer (place 1 wall twice)
 * do_text=true; // you want extruded text? disable if you do this with slicer
 * wand_dicke = 5;  // thickness of walls and cutouts
