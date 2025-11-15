@@ -60,48 +60,9 @@ This 3D-printed adapter reduces an oversized round desk hole (approximately 59 m
 
 ---
 
-## Footswitch Carriage
-lock your USB HID Pedal along your Desktop Foot
-![Carriage locking usb footswitch pedal to horizontal table stand](./assets/img/footswitch_carriage_render.png)
-
-### Problem
-You unwantingly kick way your usb footswitch pedal
-### Solution
-* Horizontal table stand as rail to lock footswitch
-* light cable management
-### Rating
-* + works - pedal always in place!
-* + no glue or weird provisioning
-* - not super solid if you kick it often
-* - pretty ugly since only cylinder() and cube() was used
-### Todo
-* remake using advanced OpenSCAD libraries (not scheduled tho)
-
-### Main Parameters:
-
-## gpu_support_spacer_rtx5090
-Minimalist GPU support cylinder with screw hole and fan outlet on top.
-![3d-printed GPU Support cylinder](./assets/img/gpu_support_spacer_collage_1.jpg)
-### Problem
-* RTX 5090 is pretty heavy and the TUF Stand is too short
-* Other GPU spacers would need Tape or Glue to fixate
-### Solution
-* Cylinder with cutout for fan and screw at the edge for stable stand
-### Rating / TODO
-* works
-* upper part
-* suggest vibration-reducing bumbers
-* the stand if not super stable - you might want to make the lowest part wider
-* the screw is a bit bigger - might need adjustment to fit even better.
-* - The Design is functional but the Design aspect not too creative,
-### Suggestion
-In your slicer, combine the solid upper part with something more creative like an animefigure etc.
-
----
-
 ## Optiplex wall mount
 Secure your Optiplex7050 Plus USB HDD together at the wall next to your Router.
-![image sequence 3d-printed dual device wallmount](./assets/img/gpu_support_spacer_collage_1.jpg)
+![image sequence 3d-printed dual device wallmount](./assets/img/wallmount-optiplex7050-dualdevice_collage.jpg)
 
 ### Problem
 * The OptiPlex 7050 has no built-in wall-mounting points.
@@ -143,6 +104,45 @@ sugegstion: export main part and 1 wall seperately and arrange them on your slic
 * Increase thickness 10mm per device to add space for Optiplex rubber feets and bumpers
 * buy self-adhesive bumpers from discounter, use as vibration-damping pads
 * variables and comments currently german
+
+---
+
+## Footswitch Carriage
+lock your USB HID Pedal along your Desktop Foot
+![Carriage locking usb footswitch pedal to horizontal table stand](./assets/img/footswitch_carriage_render.png)
+
+### Problem
+You unwantingly kick way your usb footswitch pedal
+### Solution
+* Horizontal table stand as rail to lock footswitch
+* light cable management
+### Rating
+* + works - pedal always in place!
+* + no glue or weird provisioning
+* - not super solid if you kick it often
+* - pretty ugly since only cylinder() and cube() was used
+### Todo
+* remake using advanced OpenSCAD libraries (not scheduled tho)
+
+### Main Parameters:
+
+## gpu_support_spacer_rtx5090
+Minimalist GPU support cylinder with screw hole and fan outlet on top.
+![3d-printed GPU Support cylinder](./assets/img/gpu_support_spacer_collage_1.jpg)
+### Problem
+* RTX 5090 is pretty heavy and the TUF Stand is too short
+* Other GPU spacers would need Tape or Glue to fixate
+### Solution
+* Cylinder with cutout for fan and screw at the edge for stable stand
+### Rating / TODO
+* works
+* upper part
+* suggest vibration-reducing bumbers
+* the stand if not super stable - you might want to make the lowest part wider
+* the screw is a bit bigger - might need adjustment to fit even better.
+* - The Design is functional but the Design aspect not too creative,
+### Suggestion
+In your slicer, combine the solid upper part with something more creative like an animefigure etc.
 
 ---
 
