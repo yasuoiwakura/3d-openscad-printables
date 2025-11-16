@@ -109,7 +109,7 @@ sugegstion: export main part and 1 wall seperately and arrange them on your slic
 
 ## Footswitch Carriage
 lock your USB HID Pedal along your Desktop Foot
-![Carriage locking usb footswitch pedal to horizontal table stand](./assets/img/footswitch_carriage_render.png)
+![Carriage locking usb footswitch pedal to horizontal table stand](./assets/img/footswitch_carriage_collage.jpg)
 
 ### Problem
 You unwantingly kick way your usb footswitch pedal
