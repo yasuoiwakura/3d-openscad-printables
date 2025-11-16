@@ -134,7 +134,7 @@ You unwantingly kick way your usb footswitch pedal
 
 ## gpu_support_spacer_rtx5090
 Minimalist GPU support cylinder with screw hole and fan outlet on top.
-![3d-printed GPU Support cylinder](./assets/img/gpu_support_spacer_collage_1.jpg)
+![3d-printed GPU Support cylinder](./assets/img/gpu_support_spacer_collage.jpg)
 ### Problem
 * RTX 5090 is pretty heavy and the TUF Stand is too short
 * Other GPU spacers would need Tape or Glue to fixate
