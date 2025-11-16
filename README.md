@@ -153,12 +153,22 @@ In your slicer, combine the solid upper part with something more creative like a
 ---
 
 ## anime figure stand (rail) for curved Samsung 9G Monitor
-PLACEHOLDER
+![image sequence curved sliding anime figure stand on monitor](./assets/img/curved_figure_holder_collage.jpg)
+### Problem
+* Anime figures come with simple stands, you cannot put them on your monitor without glueing.
+* My [monitor](https://www.amazon.de/dp/B08SW6P7CH) has radius=1m and a an angled egde, so the slider cannot be simple 90°.
+### Solution
+* create an angled shape and partly extrude it from a r=1000mm position, add hole and a holder.
+### Export parameters
+check main() func on file bottom:
+* schiene(); the main curved slider
+* hangman() the figure holder - print seperately!
+* cylinder(); hole(s) to place hangman or other stuff
+
 
 ## mount portable monitor to pc back
 Pure Base 600 mount with angles to attach a portable monitor
 ![image sequence for pc-case-mount for portable monitor](./assets/img/pc-case-hinge-bracket.jpg)
-
 ### Problem
 This [11.6 inch 1080p dual-monitor](https://www.amazon.de/dp/B08VJCWBH2) extension for laptops I bought on amazon is mostly unsued and too heavy for my surface anyway.
 ### Solution
