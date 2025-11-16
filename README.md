@@ -71,6 +71,12 @@ Secure your Optiplex7050 Plus USB HDD together at the wall next to your Router.
 * Simple modular wall mount
 * Four recesses for countersunk screws
 * customizable text (change color in slicer to get a nice contrast)
+### external Libraries
+Some functions are outsorced (sinkhole and curved cube):  
+They are needed for render and export:
+* _bohr_senk.scad
+* _round_edge.scad
+* (_wall_with_holes.scad)
 ### Parameters
 * fn=128; // default resolution
 * test=false; // render optiplex and HDD placeholder (do NOT export STL!!!)
