@@ -18,6 +18,16 @@ This project is licensed under the [CC BY-NC 4.0 License](LICENSE.md).
 CC BY-NC 4.0 Matthias Block https://creativecommons.org/licenses/by-nc/4.0/legalcode  
 This is to protect from Temu and mass-resellers, plase drop a message if you need commercial licenses or the license is hindering you from participating - just let me know!
 
+## How to print
+Either reach out to [Sasugamer 3D](https://sg3d.store/)  
+### or export STL yourself:
+* install OpenSCAD from openscad.org
+* clone repo
+* load .scad
+* set parameters (what to export)
+* render F5/F6
+* export F7 as STL
+
 # Models
 
 ---
