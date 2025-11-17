@@ -8,15 +8,16 @@ A small printables-as-code library of assorted parametric OpenSCAD models
 3. Buying Fusion360 not quite cheap (plus closed source)
 
 ## solution approach
-Design-as-Code approach OpenSCAD[https://openscad.org/] enabling parameters, logic and use Git versioning. It also can export STL-Files for your Slicer.  
-Creating them can by time-consuming (even with ai), so I'm publishing my objects here for personal use.
+Design-as-Code approach OpenSCAD[https://openscad.org/] enabling parameters, logic and use Git versioning.  
+It allows STL-export for your Slicer.  
+Creating object can be time-consuming and ai-support is quite limited, so I'm publishing my objects here for personal use and learn examples.
 
 ## license
 ### CC BY-NC 4.0
 This project is licensed under the [CC BY-NC 4.0 License](LICENSE.md).  
-
+#### feel limited
+This is to protect from Temu and mass-resellers, *plase drop a message* if you need commercial licenses or the license is hindering you from participating - just let me know!
 CC BY-NC 4.0 Matthias Block https://creativecommons.org/licenses/by-nc/4.0/legalcode  
-This is to protect from Temu and mass-resellers, plase drop a message if you need commercial licenses or the license is hindering you from participating - just let me know!
 
 ## How to print
 Either reach out to [Sasugamer 3D](https://sg3d.store/)  
