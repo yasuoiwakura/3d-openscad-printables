@@ -11,7 +11,7 @@ A small printables-as-code library of assorted parametric OpenSCAD models
 
 ## solution approach
 
-Design-as-Code approach OpenSCAD[https://openscad.org/] enabling parameters, logic and use Git versioning.  
+Design-as-Code approach [OpenSCAD](https://openscad.org/) enabling parameters, logic and use Git versioning.  
 It allows STL-export for your Slicer.  
 Creating object can be time-consuming and ai-support is quite limited, so I'm publishing my objects here for personal use and learn examples.
 
@@ -39,9 +39,9 @@ Either reach out to [Sasugamer 3D](https://sg3d.store/)
 * render F5/F6
 * export F7 as STL
 
-## Models
-
 ---
+
+## Models
 
 ### desk grommet adapter {#grommet-problem}
 
