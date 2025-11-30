@@ -26,7 +26,7 @@ end
 subgraph I[Slicer Program]
    L -- import --> G[Guess] --> SCALE[Scale] --> Fiddle[Fiddle] --> CUT[Cut Layers] --> PRINT[Print]
 end
-   PRINT -- repeat and waste material until it fits --> G
+   PRINT -- trial and error --> G
 ```
 
 ### OpenSCAD Workflow
