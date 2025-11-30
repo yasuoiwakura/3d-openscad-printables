@@ -15,6 +15,44 @@ Design-as-Code approach [OpenSCAD](https://openscad.org/) enabling parameters, l
 It allows STL-export for your Slicer.  
 Creating object can be time-consuming and ai-support is quite limited, so I'm publishing my objects here for personal use and learn examples.
 
+
+### STL workflow customizing STL-Files with Slicer
+```mermaid
+flowchart LR
+subgraph Internet[Internet]
+  L[STL-File]
+end
+
+subgraph I[Slicer Program]
+   L -- import --> G[Guess] --> SCALE[Scale] --> Fiddle[Fiddle] --> CUT[Cut Layers] --> PRINT[Print]
+end
+   PRINT -- repeat and waste material until it fits --> G
+```
+
+### OpenSCAD Workflow
+```mermaid
+flowchart LR
+subgraph Internet[Internet]
+  OF[OpenSCAD File]
+end
+subgraph OP[OpenSCAD Program]
+  OF[OpenSCAD File] -- edit --> PAR
+  PAR[adjust Parameters] -- generate --> MODEL
+  MODEL[3D Model]
+end
+subgraph FILE[Intermediate File]
+  L[STL-File/s]
+end
+
+MODEL -- export --> L
+subgraph I[Slicer Program]
+   PRINT[Print]
+end
+   L -- import --> PRINT
+```
+
+
+
 ## license
 
 ### CC BY-NC 4.0
